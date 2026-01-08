@@ -10,11 +10,21 @@
 </head>
 <body>
     <h1>Projeto HTMX</h1>
+    <button hx-get="/primeira-rota" 
+            hx-target="#primeira-rota" 
+            hx-trigger="click">
+        Primeira Rota
+    </button>
+    <div id="primeira-rota"></div>
+    <br/>
 
-    <button hx-get="/users" hx-target="#usuarios">
+    <button hx-get="/users" hx-target="#usuarios" hx-indicator="#loading">
         Buscar usuários
     </button>
 
     <div id="usuarios"></div>
+    <span id="loading" class="htmx-indicator">
+        <img src="img/loading.gif" alt="Loading" style="width: 40px; height: 40px;">
+    </span>
 </body>
 </html>

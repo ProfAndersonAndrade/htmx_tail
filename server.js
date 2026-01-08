@@ -12,20 +12,23 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
 
-// app.get('/users', (req, res)=>{
-//     console.log('Requisição foi chamada...')
-//     res.send('<div><h2 style="color: red;">OK FUNCIONANDO!</h2></div>')
-// });
+app.get('/primeira-rota', (req, res)=>{
+    console.log('Requisição foi chamada...')
+    //res.send('<div><h2 style="color: red;">OK FUNCIONANDO!</h2></div>')
+    res.send('<img src="https://sujeitoprogramador.com/steve.png" width="100" height="100" >')
+});
 
 app.get('/users', async (req, res)=>{
     
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const data = await response.json();
-    
-    let htmlResponse = data.map((user) => `<div>${user.name} - ${user.email}</div>`).join("")
-    //console.log(htmlResponse);
+    setTimeout(async () => {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await response.json();
+        
+        let htmlResponse = data.map((user) => `<div>${user.name} - ${user.email}</div>`).join("")
+        //console.log(htmlResponse);
 
-    res.send(htmlResponse);
+        res.send(htmlResponse);
+    }, 2500);
 });
 
 // npm run dev
