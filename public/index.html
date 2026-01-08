@@ -10,5 +10,11 @@
 </head>
 <body>
     <h1>Projeto HTMX</h1>
+
+    <button hx-get="/users" hx-target="#usuarios">
+        Buscar usuários
+    </button>
+
+    <div id="usuarios"></div>
 </body>
 </html>
